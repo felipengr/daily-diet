@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { TypographyStyle } from ".";
 
 export const Container = styled.Text<TypographyStyle>`
-    text-align: ${({ textAlign }) => (textAlign ? textAlign : 'letf')};
+    text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
 
     font-family: ${({ theme, fontFamily }) => {
         return theme.font_family[fontFamily ?? 'regular']
