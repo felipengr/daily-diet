@@ -1,22 +1,46 @@
+import { ArrowLeft } from "phosphor-react-native";
 import { Typography } from "@components/Typography";
-import { Container, Content, Header } from "./styles";
+import { BackButton, Container, Content, Header } from "./styles";
 
-type LayoutProps = {
-    header: JSX.Element
+export type LayoutColor = {
+    bg?: 'gray' | 'green' | 'red'
 }
 
-export function Layout({ header }: LayoutProps) {
+type LayoutProps = LayoutColor & {
+    header: JSX.Element | string
+    children: React.ReactNode
+    onPressBack?: () => void
+}
+
+export function Layout({ bg = 'gray', header, children, onPressBack }: LayoutProps) {
     return (
-        <Container>
+        <Container bg={bg}>
             <Header>
-                <Typography>
-                    Header
-                </Typography>
+                {typeof header === 'string' ? (
+                    <>
+                        <BackButton
+                            style={{ width: '15%' }}
+                            onPress={onPressBack}
+                        >
+                            <ArrowLeft />
+                        </BackButton>
+                        <Typography
+                            style={{ width: '60%' }}
+                            fontSize="title_sm"
+                            fontFamily="bold"
+                            lineHeight="lg"
+                            textAlign="center"
+                        >
+                            {header}
+                        </Typography>
+                        <Typography style={{ width: '15%' }} />
+                    </>
+                ): (
+                    <>{header}</>
+                )}
             </Header>
             <Content>
-                <Typography>
-                    Content
-                </Typography>
+                {children}
             </Content>
         </Container>
     )
