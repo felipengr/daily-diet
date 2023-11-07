@@ -11,6 +11,12 @@ export const Container = styled.View`
     justify-content: space-between;
 `
 
-export const Logo = styled.Image.attrs({source: logoImage})``
+export const Logo = styled.Image.attrs({source: logoImage})`
+    width: 82px;
+    height: 37px;
+`
 
-export const Avatar = styled.Image.attrs({source: avatarImage})``
+export const Avatar = styled.Image.attrs({source: avatarImage})`
+    width: 40px;
+    height: 40px;
+`

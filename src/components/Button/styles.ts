@@ -23,10 +23,3 @@ export const Container = styled.TouchableOpacity<ButtonType>`
         }
     }};
 `
-
-export const Title = styled(Typography).attrs<ButtonType>(({ type }) => ({
-    fontFamily: 'bold',
-    color: type === 'solid' ? 'white' : 'gray_1',
-}))<ButtonType>`
-    margin: 0 12px;
-`
